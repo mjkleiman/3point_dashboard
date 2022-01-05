@@ -1,1 +1,1 @@
-web: python 3d_viri_dash.py
+web: gunicorn app:server

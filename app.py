@@ -4,8 +4,10 @@ import dash_html_components as html
 from dash.dependencies import Input, Output, State
 import pandas as pd
 import plotly.express as px
+import gunicorn
 
 app = dash.Dash(__name__)
+server = app.server
 
 df = pd.read_csv('data/3D_viri.csv')
 df.GrossDx.replace({1:'Control',2:'MCI',3:'Dementia'}, inplace=True)
@@ -53,6 +55,6 @@ def plot_point(button_plot, input_vi, input_ri, input_nsct):
 
     return fig
 
-
-if __name__ == '__main__':
-    app.run_server()
+# For local runtime
+# if __name__ == '__main__':
+#     app.run_server()
