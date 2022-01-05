@@ -7,7 +7,7 @@ import plotly.express as px
 
 app = dash.Dash(__name__)
 
-df = pd.read_csv('../data/processed/3D_viri.csv')
+df = pd.read_csv('data/3D_viri.csv')
 df.GrossDx.replace({1:'Control',2:'MCI',3:'Dementia'}, inplace=True)
 
 
