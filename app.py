@@ -48,10 +48,10 @@ def plot_point(button_plot, input_vi, input_ri, input_nsct):
     df_new = df.copy()
     df_new = df_new.append({'VI':input_vi,'RI':input_ri,'coding_score':input_nsct,'GrossDx':'Your Input'}, ignore_index=True)
 
-    fig = px.scatter_3d(df_new, x='RI', y='VI', z='coding_score', color='GrossDx', height=600, width=750,
+    fig = px.scatter_3d(df_new, x='RI', y='VI', z='coding_score', color='GrossDx', height=600, width=900,
                         color_discrete_map={'Your Input':'#000000','Control':'#07ed6f','MCI':'#1b5ffe','Dementia':'#e00e0b'},
                         category_orders={'GrossDx':['Control','MCI','Dementia','Your Input']},
-                        labels={'GrossDx':'Diagnosis','coding_score':'Number-Symbol Coding','VI':'Vulnerability Index','RI':'Resilience Index'})
+                        labels={'GrossDx':'Label','coding_score':'Number-Symbol Coding','VI':'Vulnerability Index','RI':'Resilience Index'})
 
     return fig
 
