@@ -60,7 +60,6 @@ def plot_point(button_plot, input_vi, input_ri, input_nsct):
                         size_max=5,
                         category_orders={'GrossDx':['Control','MCI','Dementia','Your Input']},
                         labels={'GrossDx':'Label','coding_score':'Number-Symbol Coding','VI':'Vulnerability Index','RI':'Resilience Index'})
-    fig.add_trace()
 
     return fig
 
