@@ -11,7 +11,7 @@ app = dash.Dash(__name__)
 server = app.server
 
 df = pd.read_csv('data/3D_viri.csv')
-df.GrossDx.replace({1:'Control',2:'MCI',3:'Dementia'}, inplace=True)
+df.GrossDx.replace({1:'Control',2:'MCI',3:'ADRD'}, inplace=True)
 df['NewPoint'] = 0
 
 
@@ -55,10 +55,10 @@ def plot_point(button_plot, input_vi, input_ri, input_nsct):
     df_new = df_new.append({'VI':input_vi,'RI':input_ri,'coding_score':input_nsct,'GrossDx':'Your Input','NewPoint':1}, ignore_index=True)
 
     fig = px.scatter_3d(df_new, x='RI', y='VI', z='coding_score', color='GrossDx', symbol='NewPoint', height=600, width=900,
-                        color_discrete_map={'Your Input':'#000000','Control':'#07ed6f','MCI':'#1b5ffe','Dementia':'#e00e0b'},
+                        color_discrete_map={'Your Input':'#000000','Control':'#07ed6f','MCI':'#1b5ffe','ADRD':'#e00e0b'},
                         symbol_map={0:'circle',1:'diamond'},
                         size_max=5,
-                        category_orders={'GrossDx':['Control','MCI','Dementia','Your Input']},
+                        category_orders={'GrossDx':['Control','MCI','ADRD','Your Input']},
                         labels={'GrossDx':'Label','coding_score':'Number-Symbol Coding','VI':'Vulnerability Index','RI':'Resilience Index'})
 
     return fig
